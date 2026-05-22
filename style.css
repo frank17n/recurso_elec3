@@ -4,6 +4,18 @@
     box-sizing: border-box;
     font-size: 25px;    
 }
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 600;
+}
+h2{
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 20px
+}
 
 body{
     margin: 0;
@@ -34,6 +46,11 @@ nav ul{
 nav ul li a{
     color: white;
     text-decoration: none;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+main{
+    padding: 50px 5%;
 }
 
 main.bienvenida {
@@ -63,9 +80,17 @@ main.bienvenida {
 .contenidodebienvenida > * {
     margin-bottom: 20px;
 }
-button{
+.botones-container{
+    display: flex;
+       align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.button-ini{
     background-color: green;
     color: white;
+    text-decoration: none;
+    text-transform: capitalize;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -74,4 +99,67 @@ button{
     height: 120px;
     font-size: 20px;
     font-weight: bold;
+}
+
+div.botones_avance{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+}
+div.siguiente{
+    color: white;
+    background-color: green;
+    padding: 10px;
+    height:50px;
+    width: 150px;
+    border-radius:20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.botones_avance div.volver{
+    background-color: blue;
+    padding: 10px;
+    height:50px;
+    width: 150px;
+    border-radius:20px;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    
+}
+
+div.volver a, div.siguiente a{
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+.interior {
+    padding: 50px 10%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.512);
+   
+   
+}
+
+p  {
+    margin-top: 20px;
+    line-height: 1.6 ;
+}
+
+.bioticos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+.bioticos img{
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
 }
