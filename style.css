@@ -16,7 +16,7 @@ h2{
     text-align: center;
     margin-bottom: 20px
 }
-p{
+p,section{
     line-height: 1.6 ;
 }       
 body{
@@ -165,14 +165,18 @@ div.volver a, div.siguiente a{
     top: 20px;
     top: 120px;
     width: 20%;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.96);
+    height: 250px;
+    background-color: rgba(56, 234, 107, 0.96);
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0 10px 24px rgba(0,0,0,0.12);
     max-height: calc(100vh - 140px);
     overflow: auto;
     z-index: 1000;
+}
+.sidebar audio{
+    width: 100%;
+    margin-top: 20px;
 }
 
 .interior {
@@ -185,3 +189,8 @@ div.volver a, div.siguiente a{
     background-color: rgba(255, 255, 255, 0.512);
 }
 
+header nav ul li img{
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+}
