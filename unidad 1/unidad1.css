@@ -83,6 +83,60 @@ iframe{
     border-radius: 10px;
 }
 
+.bioticos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+.bioticos img{
+
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+}
+.elementossociaes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.elementossociaes img{
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.imggg{
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.imggg img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+p.actividad iframe{
+    height: auto;
+    padding: 20px 50px;
+    margin-top: 20px;
+    background-color: rgb(255, 164, 164);
+    border-radius: 20px;
+} 
+
+.actividad h2{
+
+    text-align: center;
+    margin-top: 600px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
 
 
 

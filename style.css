@@ -16,7 +16,9 @@ h2{
     text-align: center;
     margin-bottom: 20px
 }
-
+p{
+    line-height: 1.6 ;
+}       
 body{
     margin: 0;
     padding: 0;
@@ -34,10 +36,13 @@ body{
 }
 
 nav{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: green;
     color: white;
     padding: 30px;
-    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 nav ul{
     list-style: none;
@@ -51,8 +56,21 @@ nav ul li a{
 }
 main{
     padding: 50px 5%;
+    display: flex;
+  
 }
-
+div.main{
+   padding: 00 10%;
+    
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(160, 255, 168);
+    background-image: url(../img/descarga.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 main.bienvenida {
     padding: 00 10%;
     display: flex;
@@ -139,27 +157,31 @@ div.volver a, div.siguiente a{
     display: inline-flex;
     align-items: center;
 }
+
+
+
+.sidebar {
+    position: sticky;
+    top: 20px;
+    top: 120px;
+    width: 20%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.96);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+    z-index: 1000;
+}
+
 .interior {
+    clear: both;
+    width: 80%;
+    float: right;
+    margin-left: 20px;
     padding: 50px 10%;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.512);
-   
-   
 }
 
-p  {
-    margin-top: 20px;
-    line-height: 1.6 ;
-}
-
-.bioticos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
-}
-.bioticos img{
-    width: 45%;
-    height: auto;
-    border-radius: 10px;
-}
