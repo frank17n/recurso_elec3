@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 25px;    
+    font-size: 25px;
+    font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
+}
+
+* {
+    font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
 }
 h1{
     text-align: center;
@@ -22,7 +29,7 @@ p,section{
 body{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    
    
 }
 
@@ -31,7 +38,7 @@ body{
     nav ul li{
     display: inline-block;
     margin-right: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
     font-size: 18px;
 }
 
@@ -106,6 +113,8 @@ main.bienvenida {
 }
 .button-ini{
     background-color: green;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-decoration: none;
     text-transform: capitalize;
@@ -113,6 +122,7 @@ main.bienvenida {
     padding: 10px 20px;
     cursor: pointer;
     display: inline-block;
+    border-radius: 20px;
     width: auto;
     height: 120px;
     font-size: 20px;
@@ -193,4 +203,30 @@ header nav ul li img{
     width: 200px;
     height: 100px;
     object-fit: contain;
+}
+
+#mensaje{
+    text-align: center;
+    width: 50%;
+    background-color: #ffffff;
+    margin-top: 20px;
+    color: #333;
+    border-radius: 20px;
+    padding: 5px;
+}
+main.bienvenida img#img1{
+    width: 450px;
+    position: absolute;
+    float: right;
+    right: 0;
+    height:500px;
+    margin-top: 20px;
+}
+main.bienvenida img#img2{
+    width: 450px;
+    position: absolute;
+    float: left;
+    left: 0;
+    height:500px;
+    margin-top: 20px;
 }

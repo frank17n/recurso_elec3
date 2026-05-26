@@ -1,6 +1,9 @@
 @import url("../style.css");
 
 
+* {
+    font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
+}
 main{
   background-color: rgb(160, 255, 168);
     background-image: url(../img/descarga.jpg);
