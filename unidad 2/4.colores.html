@@ -6,12 +6,117 @@
     <title>inicio</title>
    <link rel="stylesheet" href="../unidad 1/unidad1.css">
     <link rel="stylesheet" href="../    style.css">
+
+    <style>
+        .game-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 { color: #2e7d32; margin-top: 0; }
+
+/* Contenedor de elementos a arrastrar */
+.elements-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    min-height: 60px;
+}
+
+.draggable-item {
+    background-color: #fff;
+    border: 2px dashed #9e9e9e;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: grab;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+    user-select: none;
+}
+
+.draggable-item:active { cursor: grabbing; }
+.draggable-item.dragging { opacity: 0.5; transform: scale(0.95); }
+
+/* Contenedor de Canecas */
+.bins-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.bin {
+    width: 120px;
+    height: 160px;
+    border-radius: 10px 10px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+    position: relative;
+}
+
+/* Colores de las canecas */
+.bin.azul { background-color: #1565c0; }
+.bin.gris { background-color: #757575; }
+.bin.verde { background-color: #2e7d32; }
+
+/* Tapa de la caneca simulada */
+.bin-cover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Efecto cuando pasas el elemento sobre la caneca */
+.bin.hovered {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Mensajes de feedback */
+.feedback-message {
+    height: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+.success { color: #2e7d32; font-size: 1.1em; }
+.error { color: #c62828; animation: shake 0.3s; }
+
+.score {
+    margin-top: 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #37474f;
+}
+
+/* Animación de error (sacudida) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="../index.html"><img src="../img/LogoEco-removebg-preview.png" alt="logo"></a></li>
+            <ul
+            
                 <li><a href="../index.html" alt="inicio">Inicio</a></li>
                 <li><a href="../index.html" alt="unidad 1">unidad 1</a></li>
                 <li><a href="unidad 2/index.html" alt="unidad 2">unidad 2</a></li>
@@ -23,21 +128,148 @@
         <main>
             <div class="sidebar">
                 <h2>reproducir audio de la pagina</h2>
-                <audio src="../audios/concepto de medioambiente.mp3" controls></audio>
+                <audio src="" controls></audio>
             </div>
           <div class="interior">
                 <h1>colores de las canecas de reciclaje</h1>
                 <p>
-                Las canecas de reciclaje suelen tener colores específicos para facilitar la separación de los residuos. El color verde se utiliza para los residuos orgánicos, como restos de alimentos y materiales biodegradables. El color azul se destina a los residuos reciclables, como papel, cartón, plástico y metal. El color amarillo se emplea para los residuos inorgánicos no reciclables, como pañales, toallas sanitarias y otros desechos que no pueden ser reciclados. La correcta identificación de los colores de las canecas de reciclaje es fundamental para promover la separación adecuada de los residuos y fomentar prácticas sostenibles en el manejo de la basura.
+                Las canecas de reciclaje suelen tener colores específicos para facilitar la separación de los residuos. <br><br>
+                
+                <strong> El color verde</strong> se utiliza para los residuos orgánicos, como restos de alimentos y materiales biodegradables. <br><br>
+                
+               <strong>El color azul</strong> se destina a los residuos reciclables, como papel, cartón, plástico y metal. <br><br>
+                
+               <strong>El color amarillo</strong> se emplea para los residuos inorgánicos no reciclables, como pañales, toallas sanitarias y otros desechos que no pueden ser reciclados.<br><br>
+                
+                La correcta identificación de los colores de las canecas de reciclaje es fundamental para promover la separación adecuada de los residuos y fomentar prácticas sostenibles en el manejo de la basura.
                 </p>
                 <div class="video-container">
                  
+
+                    <div class="game-container">
+        <h1>¡Ayuda a Reciclar!</h1>
+        <p>Arrastra cada residuo a la caneca correspondiente.</p>
+
+        <div id="feedback" class="feedback-message"></div>
+
+        <div class="elements-container">
+            <div class="draggable-item" draggable="true" id="plastico" data-type="azul">🍾 Botella Plástica</div>
+            <div class="draggable-item" draggable="true" id="papel" data-type="gris">📰 Periódico Viejo</div>
+            <div class="draggable-item" draggable="true" id="vidrio" data-type="verde">🍷 Botella de Vidrio</div>
+        </div>
+
+        <div class="bins-container">
+            <div class="bin azul" data-color="azul">
+                <div class="bin-cover"></div>
+                <span>Plásticos (Azul)</span>
+            </div>
+            <div class="bin gris" data-color="gris">
+                <div class="bin-cover"></div>
+                <span>Papel/Cartón (Gris)</span>
+            </div>
+            <div class="bin verde" data-color="verde">
+                <div class="bin-cover"></div>
+                <span>Vidrio (Verde)</span>
+            </div>
+        </div>
+
+        <div class="score">Aciertos: <span id="score-counter">0</span> / 3</div>
+    </div>
+
+    <script >
+        // Selección de elementos del DOM
+const draggables = document.querySelectorAll('.draggable-item');
+const bins = document.querySelectorAll('.bin');
+const feedback = document.getElementById('feedback');
+const scoreCounter = document.getElementById('score-counter');
+
+let score = 0;
+let draggedElement = null;
+
+// Configuración de los elementos arrastrables
+draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', (e) => {
+        draggedElement = draggable;
+        draggable.classList.add('dragging');
+        // Guardamos el tipo de residuo en la transferencia de datos
+        e.dataTransfer.setData('text/plain', draggable.id);
+    });
+
+    draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+    });
+});
+
+// Configuración de las zonas de destino (Canecas)
+bins.forEach(bin => {
+    // Permitir el drop (por defecto el navegador lo bloquea)
+    bin.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        bin.classList.add('hovered');
+    });
+
+    // Quitar efecto visual cuando el elemento sale de la caneca
+    bin.addEventListener('dragleave', () => {
+        bin.classList.remove('hovered');
+    });
+
+    // Evento principal al soltar el elemento
+    bin.addEventListener('drop', (e) => {
+        e.preventDefault();
+        bin.classList.remove('hovered');
+
+        if (!draggedElement) return;
+
+        // Validamos la compatibilidad
+        const itemType = draggedElement.getAttribute('data-type');
+        const binColor = bin.getAttribute('data-color');
+
+        if (itemType === binColor) {
+            // RETROALIMENTACIÓN POSITIVA
+            showFeedback("¡Excelente! Lo clasificaste correctamente. 🎉", "success");
+            
+            // Hacer desaparecer el residuo de forma elegante
+            draggedElement.style.display = 'none'; 
+            
+            // Aumentar contador
+            score++;
+            scoreCounter.textContent = score;
+
+            // Verificar si el juego terminó
+            if (score === 3) {
+                showFeedback("¡Felicidades! Has clasificado todos los residuos correctamente. 🌍✨", "success");
+            }
+        } else {
+            // RETROALIMENTACIÓN NEGATIVA
+            showFeedback("¡Ups! Ese residuo no va en esta caneca. Inténtalo de nuevo. ❌", "error");
+        }
+        
+        // Resetear la variable del elemento arrastrado
+        draggedElement = null;
+    });
+});
+
+// Función auxiliar para mostrar los mensajes
+function showFeedback(message, statusClass) {
+    feedback.textContent = message;
+    feedback.className = `feedback-message ${statusClass}`;
+    
+    // Si es un error, limpiamos el mensaje después de 2.5 segundos
+    if(statusClass === 'error') {
+        setTimeout(() => {
+            if(feedback.classList.contains('error')) {
+                feedback.textContent = '';
+            }
+        }, 2500);
+    }
+}
+    </script>
                 </div>
 
-
+                   
 
                   <div class="botones_avance">
-                <div class="volver"><a href="index.html">regresar</a></div>
+                <div class="volver"><a href="3-clasificacion.html">regresar</a></div>
                 <div class="siguiente"><a href="../evaluacion.html">siguiente</a></div>
             </div>
 
